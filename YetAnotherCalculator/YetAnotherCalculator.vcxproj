@@ -116,15 +116,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cui.cpp" />
     <ClCompile Include="lexer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="rpnCalculate.cpp" />
+    <ClCompile Include="rpnTrans.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="lexer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test.h" />
+    <ClInclude Include="cui.h" />
+    <ClInclude Include="rpnCalculate.h" />
+    <ClInclude Include="rpnOperations.h" />
+    <ClInclude Include="rpnTrans.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

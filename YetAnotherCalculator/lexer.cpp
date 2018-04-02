@@ -1,14 +1,14 @@
-#include"lexer.h"
-#include<cctype>
+#include "lexer.h"
+#include <cctype>
 
 double GetNumber(std::string::const_iterator &start, const std::string &ori_str);
 
-void Lexer(LexList &list, const std::string &str)
+void Lexer(TokenList &list, const std::string &str)
 {
 	auto i = str.begin();
 	while(i != str.end())
 	{
-		LexWord new_word = LexWord(LexType::kEnd);
+		Token new_token = Token(TokenType::kEnd);
 
 		if (isblank(*i))
 		{
@@ -19,42 +19,42 @@ void Lexer(LexList &list, const std::string &str)
 		if (isdigit(*i) || *i == '.')
 		{
 			double val = GetNumber(i, str);
-			new_word = LexWord(LexType::kNumber, val);
+			new_token = Token(TokenType::kNumber, val);
 		}
 		else
 		{
-			LexType type = LexType::kEnd;
+			TokenType type = TokenType::kEnd;
 			switch (*i)
 			{
 			case '+':
-				type = LexType::kAdd;
+				type = TokenType::kAdd;
 				break;
 			case '-':
-				type = LexType::kMinus;
+				type = TokenType::kMinus;
 				break;
 			case '*':
-				type = LexType::kMutiply;
+				type = TokenType::kMutiply;
 				break;
 			case '/':
-				type = LexType::kDivision;
+				type = TokenType::kDivision;
 				break;
 			case '(':
-				type = LexType::kLeftBracket;
+				type = TokenType::kLeftBracket;
 				break;
 			case ')':
-				type = LexType::kRightBracket;
+				type = TokenType::kRightBracket;
 				break;
 			default:
 				break;
 			}
-			new_word = LexWord(type);
+			new_token = Token(type);
 			i++;
 		}
 
-		list.push_back(new_word);
+		list.push_back(new_token);
 	}
 
-	list.push_back(LexWord(LexType::kEnd));
+	list.push_back(Token(TokenType::kEnd));
 }
 
 double GetNumber(std::string::const_iterator &i, const std::string &ori_str)
@@ -68,7 +68,7 @@ double GetNumber(std::string::const_iterator &i, const std::string &ori_str)
 		}
 	}
 
-	if (*i == '.')
+	if (i != ori_str.end() && *i == '.')
 	{
 		i++;
 		for (; i != ori_str.end(); i++)

@@ -21,7 +21,13 @@
     <ClCompile Include="lexer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="rpnTrans.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rpnCalculate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cui.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -31,7 +37,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test.h">
+    <ClInclude Include="rpnTrans.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="rpnCalculate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="rpnOperations.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="cui.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

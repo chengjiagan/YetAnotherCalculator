@@ -1,8 +1,8 @@
 #pragma once
-#include<vector>
-#include<string>
+#include <vector>
+#include <string>
 
-enum LexType
+enum TokenType
 {
 	kEnd,
 	kNumber,
@@ -11,20 +11,23 @@ enum LexType
 	kMutiply,
 	kDivision,
 	kRightBracket,
-	kLeftBracket
+	kLeftBracket,
+    kHash
 };
 
-class LexWord
+class Token
 {
 private:
-	LexType _type;
+	TokenType _type;
 	double _value;
 public:
-	LexWord(LexType type, double value) : _type(type), _value(value) {}
-	LexWord(LexType type) :_type(type), _value(0.0) {}
-	friend void testLexer(const std::string &str);
+	Token(TokenType type, double value) : _type(type), _value(value) {}
+	Token(TokenType type) :_type(type), _value(0.0) {}
+	TokenType type() { return _type; }
+	double value() { return _value; }
+    void changeType(TokenType type) { _type = type; }
 };
 
-typedef std::vector<LexWord> LexList;
+typedef std::vector<Token> TokenList;
 
-void Lexer(LexList &list, const std::string &str);
+void Lexer(TokenList &list, const std::string &str);
